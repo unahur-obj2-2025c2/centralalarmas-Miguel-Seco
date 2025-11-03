@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import ar.edu.unahur.obj2.observer.alertas.Alerta;
 
@@ -20,27 +21,32 @@ public class AlertaTest {
         fuego = new Alerta("fuego", 10);
     }
 
+    @Test
     public void dadaUnaAlertaObtengoElTipo(){
         String valorEsperado = "lluvia";
         String valorObtenido = lluvia.getTipo();
         assertEquals(valorEsperado, valorObtenido );
     }
 
+    @Test
     public void dadaUnaAlertaObtengoElNivel(){
         Integer valorEsperado = 6;
         Integer valorObtenido = lluvia.getNivel();
         assertEquals(valorEsperado, valorObtenido );
     }
 
+    @Test
     public void dadaUnaAlertaDeNivel9ObtengoQueEsCritica(){
         Alerta huracan = new Alerta("Huracan", 9); 
         assertTrue(huracan.esCritica());        
     }
 
-    public void dadaUnaAlertaDeNivel8ObtengoQueNoEsCritica(){ 
-        assertFalse(calor.esCritica());        
+    @Test
+    public void dadaUnaAlertaDeNivel6ObtengoQueNoEsCritica(){ 
+        assertFalse(lluvia.esCritica());        
     }
 
+    @Test
     public void dadaUnaAlertaDeNivel10ObtengoQueEsCritica(){ 
         assertTrue(fuego.esCritica());        
     }
